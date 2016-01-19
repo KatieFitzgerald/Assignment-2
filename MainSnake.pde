@@ -27,8 +27,7 @@ void draw()
   for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
   {
     GameObject go = gameObjects.get(i);
-    go.restart();
-    go.update();
+    go.travel();
     go.render();
   }
   

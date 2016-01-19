@@ -1,78 +1,81 @@
 // The class name starts with uppercase
 class Snake extends GameObject
 {
-  // Fields!
   int move;
-  int left;
-  int right;
+  int turnL;
+  int turnR;
   int[] headX = new int[2500];
   int[] headY = new int[2500];
-  
+  int snakesize = 5;
+
   Snake()
   {
     // Constructor chaining. Call a constructor in the super class
-    super(width * 0.5f, height  * 0.5f, 50);     
-    
+    super(width * 0.5f, height  * 0.5f, 50);
   }
-  
-  Snake(int move, int left, int right, float startX, float startY)
+
+  Snake(int move, int turnL, int turnR, float startX, float startY)
   {
     super(startX, startY, 50);
     this.move = move;
-    this.left = left;
-    this.right = right;
-    
+    this.turnL = turnL;
+    this.turnR = turnR;
   }
   
-  void update()
+void keyPressed()
+{
+    if (keyCode == move && angle!=270 && (headY[1]-8)!=headY[2])
+    {
+      angle=90;
+    }
+    if (keyCode == turnL && angle!=0 && (headX[1]-8)!=headX[2])
+    {
+      angle=180;
+    }
+    if (keyCode == turnR && angle!=180 && (headX[1]+8)!=headX[2])
+    {
+      angle=0;
+    }
+}
+
+void travel()
+{
+  for(int i=snakesize;i>0;i--)
   {
-    forward.x = sin(theta);
-    forward.y = - cos(theta);
-    forward.mult(speed);
-    
-    if (keys[move] && theta != 90.0f)
+    if (i!=1)
     {
-      pos.add(forward);
-    }      
-    if (keys[left])
-    {
-      pos.add(forward);
-      theta = 90.0f;
+      //shift all the coordinates back one array
+      headX[i]=headX[i-1];
+      headY[i]=headY[i-1];
     }
-    if (keys[right])
+    else
     {
-      pos.add(forward);
-      theta = -90.0f;
-    }      
-    
-   
-   /* if (pos.x < 0)
-    {
-      pos.x = width;
+      //move the new spot for the head of the snake, which is
+      //always at headX[1] and headY[1].
+      switch(angle)
+      {
+        case 0:
+        headX[1]+=8;
+        break;
+        case 90:
+        headY[1]-=8;
+        break;
+        case 180:
+        headX[1]-=8;
+        break;
+        case 270:
+        headY[1]+=8;
+        break;
+      }
     }
-    
-    if (pos.x > width)
-    {
-      pos.x = 0;
-    }
-    
-    if (pos.y < 0)
-    {
-      pos.y = height;
-    }
-    
-    if (pos.y > height)
-    {
-      pos.y = 0;
-    }*/
   }
-  
+}
   void render()
   {
     pushMatrix(); // reset the translation and rotation
     translate(pos.x, pos.y);
     stroke(0);
-    rotate(theta); // We want rotate to happen first, so you make the call AFTER translate
+    rotate(angle); // We want rotate to happen first, so you make the call AFTER translate
     fill(255, 0, 0);
     rect(headX[2] * 1.0f, (headY[2]-10) * 1.0f, 10, 10);
     fill(90, 50, 220);
@@ -80,30 +83,6 @@ class Snake extends GameObject
     fill(100);
     rect(headX[4] * 1.0f, (headY[4]-30) * 1.0f, 10, 10);
     popMatrix();
-  }   
   
-  void restart()
-  {
-    //by pressing shift, all of the main variables reset to their defaults.
-    background(255);
-    headX[1]=200;
-    headY[1]=200;
-    for(int i=2;i<1000;i++)
-    {
-      headX[i]=0;
-      headY[i]=0;
-    }
   }
-
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
