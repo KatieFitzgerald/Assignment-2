@@ -72,9 +72,10 @@ class Snake extends GameObject
     fill(100);
     stroke(0);
     rotate(theta); // We want rotate to happen first, so you make the call AFTER translate    
-    rect(headX[1] * 1.0f, headY[1] * 1.0f, 10, 10);
-    rect(headX[2] * 0.1f, (headY[2]-10) * 0.1f, 10, 10);
-    rect(headX[3] *0.1f, (headY[3]-20) * 0.1f , 10, 10);
+    rect(0,0,width,8);
+    rect(0,height-8,width,8);
+    rect(0,0,8,height);
+    rect(width-8,0,8,height);
     popMatrix();
   }   
   
