@@ -73,8 +73,8 @@ class Snake extends GameObject
     stroke(0);
     rotate(theta); // We want rotate to happen first, so you make the call AFTER translate    
     rect(headX[1] * 1.0f, headY[1] * 1.0f, 10, 10);
-    rect(headX[1], headY-10, 10, 10);
-    rect(headX, headY-20, 10, 10);
+    rect(headX[2] * 0.1f, (headY[2]-10) * 0.1f, 10, 10);
+    rect(headX[3] *0.1f, (headY[3]-20) * 0.1f , 10, 10);
     popMatrix();
   }   
   
@@ -82,14 +82,13 @@ class Snake extends GameObject
   {
     //by pressing shift, all of the main variables reset to their defaults.
     background(255);
-    headx[1]=200;
-    heady[1]=200;
+    headX[1]=200;
+    headY[1]=200;
     for(int i=2;i<1000;i++)
     {
-      headx[i]=0;
-      heady[i]=0;
+      headX[i]=0;
+      headY[i]=0;
     }
-    stopgame=false;
   }
 
 }
