@@ -36,15 +36,17 @@ class Snake extends GameObject
     }      
     if (keys[left])
     {
-      theta = 180.0f;
+      pos.add(forward);
+      theta = 90.0f;
     }
     if (keys[right])
     {
-      theta = 0.0f;
+      pos.add(forward);
+      theta = -90.0f;
     }      
     
    
-    /*if (pos.x < 0)
+   /* if (pos.x < 0)
     {
       pos.x = width;
     }
@@ -62,20 +64,21 @@ class Snake extends GameObject
     if (pos.y > height)
     {
       pos.y = 0;
-    } */
+    }*/
   }
   
   void render()
   {
     pushMatrix(); // reset the translation and rotation
     translate(pos.x, pos.y);
-    fill(100);
     stroke(0);
-    rotate(theta); // We want rotate to happen first, so you make the call AFTER translate    
-    rect(0,0,width,8);
-    rect(0,height-8,width,8);
-    rect(0,0,8,height);
-    rect(width-8,0,8,height);
+    rotate(theta); // We want rotate to happen first, so you make the call AFTER translate
+    fill(255, 0, 0);
+    rect(headX[2] * 1.0f, (headY[2]-10) * 1.0f, 10, 10);
+    fill(90, 50, 220);
+    rect(headX[3] * 1.0f, (headY[3]-20) * 1.0f , 10, 10);
+    fill(100);
+    rect(headX[4] * 1.0f, (headY[4]-30) * 1.0f, 10, 10);
     popMatrix();
   }   
   
