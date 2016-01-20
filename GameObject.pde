@@ -23,7 +23,8 @@ abstract class GameObject
     this.angle = 0;
   }
   
-  abstract void travel();  
   abstract void render();
+  abstract void travel();
+  abstract void keyPressed();
 
-}  
+} 
