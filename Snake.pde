@@ -6,17 +6,19 @@ class Snake extends GameObject
   int[] headY = new int[500];
 
   int snakesize = 2;
+  int i;
 
   Snake()
   {
     // Constructor chaining. Call a constructor in the super class
     super(width * 0.5f, height  * 0.5f, 50);
+
   }
   
   
 void update()
 {
-  for(int i=snakesize; i>0; i--)
+  for(i = snakesize; i>0; i--)
   {
     if (i!=1)
     {
@@ -55,6 +57,16 @@ void update()
    
 }
 
+ void render()
+ {
+  fill(0);
+  rect(headX[1],headY[1],8,8);
+  //create trail of where the snake has gone (leave in?)
+  fill(255);
+  rect(headX[snakesize],headY[snakesize],8,8);
+  }
+
+
 void keyPressed()
 {
   if (key == CODED)
@@ -76,14 +88,5 @@ void keyPressed()
     }
    }
  }
-
-
- void render()
- {
-  fill(0);
-  rect(headX[1],headY[1],8,8);
-  //create trail of where the snake has gone (leave in?)
-  fill(255);
-  rect(headX[snakesize],headY[snakesize],8,8);
-  }
+ 
 }

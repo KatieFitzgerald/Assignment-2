@@ -6,19 +6,27 @@ class Food extends GameObject
   
   Food()
   {
-    randomX = random(height, width);
-    randomY = random(height, width);
+    randomX = random(0, 500);
+    randomY = random(0, 500);
     
   }
   
+  //objects that extend GameObject must use all the methods in it
   void render()
   {
     fill(0);
-    ellipse(250, 250, 10, 10);
+    ellipse(randomX, randomY, 10, 10);
   }
-  void update(){
+  void update()
+  {
+    
+    
   }
-  void keyPressed(){
+  
+  void keyPressed()
+  {
+    
   }
+  
   
 }

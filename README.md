@@ -1,6 +1,18 @@
 # Assignment_2
-<<<<<<< HEAD
+
 Game development assignment
 =======
 Creating a game using processing
->>>>>>> ed32619e79bbc0bf7938e23f81c9ed42a7497dea
+
+#### Project Goals ####
+
+* ~~Create a snake~~
+* ~~Give movement to the snake~~
+* ~~Create an object for food~~
+* Make food randomly reappear when the same "eats" it
+	* eats it: when head pos are equal to the food pos
+* Make a way of losing
+* Make a high score counter
+* Consider obstacles 
+
+
