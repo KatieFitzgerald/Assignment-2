@@ -14,7 +14,7 @@ class Snake extends GameObject
   }
   
   
-void travel()
+void update()
 {
   for(int i=snakesize; i>0; i--)
   {
@@ -26,8 +26,7 @@ void travel()
     }
     else
     {
-      //move the new spot for the head of the snake, which is
-      //always at headX[1] and headY[1].
+      
       switch(angle)
       {
         case 0:
@@ -60,6 +59,7 @@ void keyPressed()
 {
   if (key == CODED)
   {
+    //checking angle to make sure snake can only go forward
     if (keyCode == UP && angle!=270)
     {
       angle=90;
@@ -82,7 +82,7 @@ void keyPressed()
  {
   fill(0);
   rect(headX[1],headY[1],8,8);
-  //...then erase the back end of the snake.
+  //create trail of where the snake has gone (leave in?)
   fill(255);
   rect(headX[snakesize],headY[snakesize],8,8);
   }
