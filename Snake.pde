@@ -1,13 +1,6 @@
 // The class name starts with uppercase
 class Snake extends GameObject
 {
-  //using array instead of arraylist, easier to visualise 
-  int[] headX = new int[500];
-  int[] headY = new int[500];
-
-  int snakesize = 2;
-  int i;
-
   Snake()
   {
 
@@ -16,7 +9,7 @@ class Snake extends GameObject
   
 void update()
 {
-  for(i = snakesize; i >= 0; i--)
+  for(i = snakesize; i > 0; i--)
   {
     if (i!=1)
     {
@@ -30,24 +23,28 @@ void update()
       
       switch(angle)
       {
+        //moving right
         case 0:
         {
-          headX[1] += 8;
+          headX[i] += 10;
         }
         break;
+        //moving up
         case 90:
         {
-          headY[1] -= 8;
+          headY[i] -= 10;
         }
         break;
+        //moving left
         case 180:
         {
-          headX[1] -= 8;
+          headX[i] -= 10;
         }
         break;
+        //moving down
         case 270:
         {
-          headY[1] += 8;
+          headY[i] += 10;
         }
         break;
       }
@@ -58,32 +55,35 @@ void update()
 
  void render()
  {
+   
   fill(0);
-  rect(headX[1],headY[1],8,8);
+  rect(headX[1], headY[1], 10, 10);
+
   //create trail of where the snake has gone (leave in?)
   fill(255);
-  rect(headX[snakesize],headY[snakesize],8,8);
+  rect(headX[snakesize], headY[snakesize], 10, 10);
   }
 
 
 void keyPressed()
 {
+  //allocating code for the switch statement
   if (key == CODED)
   {
     //checking angle to make sure snake can only go forward
-    if (keyCode == UP && angle!=270)
+    if (keyCode == UP && angle != 270)
     {
-      angle=90;
+      angle = 90;
     }
-    if (keyCode == DOWN && angle!=90)
+    if (keyCode == DOWN && angle != 90)
     {
-      angle=270;
-    }if (keyCode == LEFT && angle!=0)
+      angle = 270;
+    }if (keyCode == LEFT && angle != 0)
     {
-      angle=180;
-    }if (keyCode == RIGHT && angle!=180)
+      angle = 180;
+    }if (keyCode == RIGHT && angle != 180)
     {
-      angle=0;
+      angle = 0;
     }
    }
  }
