@@ -1,13 +1,14 @@
 class Food extends GameObject
 {
-  float randomX;
-  float randomY;
+  int randomX;
+  int randomY;
   
   
   Food()
   {
-    randomX = random(0, 500);
-    randomY = random(0, 500);
+    
+    randomX = int(random(0, 500));
+    randomY = int(random(0, 500));
     
   }
   
@@ -15,11 +16,11 @@ class Food extends GameObject
   void render()
   {
     fill(0);
-    ellipse(randomX, randomY, 10, 10);
+    rect(randomX, randomY, 8, 8);
   }
   void update()
   {
-    
+    angle = 10;
     
   }
   

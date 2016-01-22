@@ -6,7 +6,7 @@ void setup()
   size(500, 500);
   background(255);
   //game goes too fast
-  frameRate(10);
+  frameRate(15);
   
   Snake snake = new Snake();
   Food food = new Food();

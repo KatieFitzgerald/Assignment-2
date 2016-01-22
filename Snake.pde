@@ -1,7 +1,7 @@
 // The class name starts with uppercase
 class Snake extends GameObject
 {
-  
+  //using array instead of arraylist, easier to visualise 
   int[] headX = new int[500];
   int[] headY = new int[500];
 
@@ -10,21 +10,20 @@ class Snake extends GameObject
 
   Snake()
   {
-    // Constructor chaining. Call a constructor in the super class
-    super(width * 0.5f, height  * 0.5f, 50);
 
   }
   
   
 void update()
 {
-  for(i = snakesize; i>0; i--)
+  for(i = snakesize; i >= 0; i--)
   {
     if (i!=1)
     {
+      //just slime, no snake
       //shift all the coordinates back one array
-      headX[i]=headX[i-1];
-      headY[i]=headY[i-1];
+      headX[i] = headX[i-1];
+      headY[i] = headY[i-1];
     }
     else
     {
@@ -33,22 +32,22 @@ void update()
       {
         case 0:
         {
-          headX[1]+=8;
+          headX[1] += 8;
         }
         break;
         case 90:
         {
-          headY[1]-=8;
+          headY[1] -= 8;
         }
         break;
         case 180:
         {
-          headX[1]-=8;
+          headX[1] -= 8;
         }
         break;
         case 270:
         {
-          headY[1]+=8;
+          headY[1] += 8;
         }
         break;
       }
