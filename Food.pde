@@ -23,7 +23,7 @@ class Food extends GameObject
   
   for(i = 1; i < snakesize; i++)
    {
-    if (randomX == headX[i] && randomY == headY[i])
+    if (i == 2) //for loop working
     {
       println("Food eaten");
     }
