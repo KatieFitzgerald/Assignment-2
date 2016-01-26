@@ -34,23 +34,16 @@ void draw()
 
 void foodEaten()
 {
-  
-  for(int i = gameObjects.size() - 1; i >= 0; i--)
-  {
-    GameObject go = gameObjects.get(i);
-    if(go instanceof Food)
+    GameObject go = gameObjects.get(0);
+    if(go instanceof Snake)
     {
-      for(int j = gameObjects.size() - 1; j >= 0; j--)
-      {
-        GameObject othergo = gameObjects.get(j);
-        if (other instanceof Snake)
+        GameObject othergo = gameObjects.get(1);
+        if (othergo instanceof Food)
         {
-           if(randomX == headX[1])
+           if(othergo.randomX == go.headX[go.snakesize])
            {
-             println("Food eaten");
+             gameObjects.remove(othergo);
            }  
         }  
       }
-    }
-  }
 }
