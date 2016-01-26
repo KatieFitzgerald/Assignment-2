@@ -19,18 +19,8 @@ class Food extends GameObject
   
   void update()
  {
-   angle = 10;
-  
-  for(i = 1; i < snakesize; i++)
-   {
-    if (i == 2) //for loop working
-    {
-      println("Food eaten");
-    }
-   }
-  
-    
-  }
+     
+ }
   
   void keyPressed()
   {
