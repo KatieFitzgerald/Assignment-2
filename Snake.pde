@@ -57,11 +57,12 @@ void update()
  {
    
   fill(0);
-  rect(headX[1], headY[1], 10, 10);
+  rect(headX[1], headY[1], 12, 12);
 
   //create trail of where the snake has gone (leave in?)
   fill(255);
-  rect(headX[snakesize], headY[snakesize], 10, 10);
+  stroke(255);
+  rect(headX[snakesize], headY[snakesize], 12, 12);
   }
 
 

@@ -1,12 +1,11 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-int frames = 0;
 
 void setup()
 {
   size(500, 500);
   background(255);
   //game goes too fast
-  frameRate(15);
+  frameRate(20);
   
   Snake snake = new Snake();
   Food food = new Food();
@@ -40,9 +39,9 @@ void foodEaten()
         GameObject othergo = gameObjects.get(1);
         if (othergo instanceof Food)
         {
-           if(othergo.randomX == go.headX[go.snakesize])
+           if(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1]) < 26)
            {
-             gameObjects.remove(othergo);
+             println("food eaten");
            }  
         }  
       }
