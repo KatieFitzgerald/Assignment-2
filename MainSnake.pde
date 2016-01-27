@@ -27,6 +27,8 @@ void draw()
       go.render();
       go.update();
       go.keyPressed();
+      
+      foodEaten();
 
   }
 } 
@@ -39,7 +41,7 @@ void foodEaten()
         GameObject othergo = gameObjects.get(1);
         if (othergo instanceof Food)
         {
-           if(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1]) < 26)
+           if (int(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) != 0 )
            {
              println("food eaten");
            }  
