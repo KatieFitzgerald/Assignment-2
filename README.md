@@ -15,5 +15,6 @@ Creating a game using processing
 * Make a way of losing
 * Make a high score counter
 * Consider obstacles 
+* Consider increasing framerate
 
 
