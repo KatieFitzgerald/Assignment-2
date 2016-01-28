@@ -54,8 +54,8 @@ void foodEaten()
       {
         GameObject othergo = gameObjects.get(j);
         if (othergo instanceof Food)
-        {
-           if (int(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 22 )
+        
+           if (int(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
            {
              gameObjects.remove(othergo);
              food = 1;
@@ -65,4 +65,3 @@ void foodEaten()
       }
     }
  }
-}
