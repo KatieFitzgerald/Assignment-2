@@ -29,18 +29,21 @@ void update()
           headX[i] += 10;
         }
         break;
+        
         //moving up
         case 90:
         {
           headY[i] -= 10;
         }
         break;
+        
         //moving left
         case 180:
         {
           headX[i] -= 10;
         }
         break;
+        
         //moving down
         case 270:
         {
@@ -56,12 +59,14 @@ void update()
  void render()
  {
    
-  fill(0);
+  fill(0, 153, 0);
   rect(headX[1], headY[1], 12, 12);
-
-  //create trail of where the snake has gone (leave in?)
+  
+  //makes the snake not a continuous line
+  
   fill(255);
   stroke(255);
+  
   rect(headX[snakesize], headY[snakesize], 12, 12);
   }
 
