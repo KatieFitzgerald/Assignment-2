@@ -39,6 +39,11 @@ void draw()
       println("Food eaten");
       foodEaten();
       println("Called");
+      
+      go.snakesize += 2;
+      
+      go.render();
+      
     }
   }
      
