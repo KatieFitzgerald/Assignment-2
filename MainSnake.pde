@@ -22,20 +22,30 @@ void draw()
   for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
   {
     GameObject go = gameObjects.get(i);
-
-      go.render();
-      go.update();
-      go.keyPressed();
-      
-      foodEaten();
-      
-      if (food == 1)
-      {
-        println("Food eaten");
-        food = 0;
+  
+    go.render();
+    go.update();
+    go.keyPressed();
+    
+    foodEaten();
+    
+    if (food == 1)
+    {
+      println("Food eaten");
+      fill(225, 0, 0);
+     
+     for(int j = gameObjects.size() - 1; j >= 0; j --)
+     {
+        GameObject othergo = gameObjects.get(j);
+        if (othergo instanceof Food)
+        {
+          rect(othergo.randomX, othergo.randomY, 8, 8);
+          food = 0;
+        }
       }
+    }
   }
-} 
+}
 
 void foodEaten()
 {
