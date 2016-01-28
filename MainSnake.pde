@@ -1,4 +1,5 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+int food = 0;
 
 void setup()
 {
@@ -21,15 +22,18 @@ void draw()
   for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
   {
     GameObject go = gameObjects.get(i);
-    
-    //game goes too fast otherwise
 
       go.render();
       go.update();
       go.keyPressed();
       
       foodEaten();
-
+      
+      if (food == 1)
+      {
+        println("Food eaten");
+        food = 0;
+      }
   }
 } 
 
@@ -48,6 +52,9 @@ void foodEaten()
            if (int(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 22 )
            {
              gameObjects.remove(othergo);
+             
+             food = 1;
+            
            }  
         }  
       }
