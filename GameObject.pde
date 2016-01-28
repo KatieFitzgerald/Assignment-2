@@ -8,17 +8,19 @@ abstract class GameObject
   int[] headX = new int[500];
   int[] headY = new int[500];
 
-  int snakesize = 5;
+   int snakesize = 5;
   int i;
 
-  
   GameObject()
   {
     this.angle = 0;
+
   }
   
   abstract void render();
   abstract void update();
   abstract void keyPressed();
+ 
+   
 
 } 

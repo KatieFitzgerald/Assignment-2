@@ -37,6 +37,8 @@ void draw()
       rect(newRandomX, newRandomY, 8, 8);
       food = 0;
       println("Food eaten");
+      foodEaten();
+      println("Called");
     }
   }
      
@@ -59,9 +61,8 @@ void foodEaten()
            {
              gameObjects.remove(othergo);
              food = 1;
-            
            }  
         }  
       }
     }
- }
+}
