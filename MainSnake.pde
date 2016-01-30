@@ -30,6 +30,7 @@ void draw()
     go.keyPressed();
     
     foodEaten();
+
   }
      
 }
@@ -49,10 +50,15 @@ void foodEaten()
         
            if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
            {
-               gameObjects.remove(othergo);
+             gameObjects.remove(othergo);
              
+              //spawning new food
               Food food = new Food();
               gameObjects.add(food);
+              
+              //making snake bigger everytime!
+              go.snakesize += 2;
+              go.render();
            }  
         }  
       }
