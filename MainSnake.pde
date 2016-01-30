@@ -30,21 +30,6 @@ void draw()
     go.keyPressed();
     
     foodEaten();
-  
-    if (food == 1)
-    {
-      fill(225, 0, 0);
-      rect(newRandomX, newRandomY, 8, 8);
-      food = 0;
-      println("Food eaten");
-      foodEaten();
-      println("Called");
-      
-      go.snakesize += 2;
-      
-      go.render();
-      
-    }
   }
      
 }
@@ -62,10 +47,12 @@ void foodEaten()
         GameObject othergo = gameObjects.get(j);
         if (othergo instanceof Food)
         
-           if (int(dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
+           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
            {
-             gameObjects.remove(othergo);
-             food = 1;
+               gameObjects.remove(othergo);
+             
+              Food food = new Food();
+              gameObjects.add(food);
            }  
         }  
       }
