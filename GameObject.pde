@@ -9,7 +9,7 @@ abstract class GameObject
   int[] headX = new int[500];
   int[] headY = new int[500];
 
-  int snakesize = 7;
+  int snakesize = 20;
   int i;
 
   GameObject()

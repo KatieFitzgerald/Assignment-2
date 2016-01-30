@@ -70,12 +70,12 @@ void eatSelf()
     GameObject go = gameObjects.get(i);
     if(go instanceof Snake)
     {
-           if (int (dist(go.headX[1], go.headY[1], go.headX[go.snakesize], go.headY[go.snakesize])) < 1)
+           if (int (dist(go.headX[1], go.headY[1], go.headY[go.i], go.headX[go.i])) < 1)
            {
              println("Dead");
            }  
         }  
-      }
+    }
 }
   
   

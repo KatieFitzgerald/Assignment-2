@@ -18,8 +18,7 @@ void update()
       //shift all the coordinates back one array
       headX[i] = headX[i-1];
       headY[i] = headY[i-1];
-      
-      println(headX[i]);
+     
     }
     
     else
