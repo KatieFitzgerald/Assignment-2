@@ -18,8 +18,6 @@ void setup()
 
 void draw()
 {
-  int newRandomX = int(random(400));
-  int newRandomY =  int(random(400));
   
   for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
   {
@@ -50,9 +48,9 @@ void foodEaten()
         
            if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
            {
+             fill(255);
              gameObjects.remove(othergo);
-             
-              //spawning new food
+
               Food food = new Food();
               gameObjects.add(food);
               
@@ -62,5 +60,23 @@ void foodEaten()
            }  
         }  
       }
-    }
+   }
 }
+
+void eatSelf()
+{
+   for(int i = gameObjects.size() - 1; i >= 0; i --)
+ {
+    GameObject go = gameObjects.get(i);
+    if(go instanceof Snake)
+    {
+           if (int (dist(go.headX[1], go.headY[1], go.headX[go.snakesize], go.headY[go.snakesize])) < 1)
+           {
+             println("Dead");
+           }  
+        }  
+      }
+}
+  
+  
+  
