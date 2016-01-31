@@ -28,6 +28,7 @@ void draw()
     go.keyPressed();
     
     foodEaten();
+    dead();
 
   }
      
@@ -63,7 +64,7 @@ void foodEaten()
    }
 }
 
-void eatSelf()
+void dead()
 {
    for(int i = gameObjects.size() - 1; i >= 0; i --)
  {
@@ -76,6 +77,24 @@ void eatSelf()
            }  
         }  
     }
+   
+   if(frameCount == 40)
+   {
+         
+      for(int i = gameObjects.size() - 1; i >= 0; i --)
+     {
+        GameObject go = gameObjects.get(i);
+        
+        if(go instanceof Snake)
+        {
+           if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
+           {
+             println("Hit wall");
+           }  
+        }  
+      }
+   }
+    
 }
   
   
