@@ -51,7 +51,7 @@ void draw()
         fill(0);
         stroke(0);
         textSize(30);
-        text("Game Over Loser", 150, 150);
+        text("Game Over", 150, 150);
   }
      
 }
