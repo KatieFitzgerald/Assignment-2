@@ -2,6 +2,8 @@ ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean gameOver = false;
 boolean[] keys = new boolean[512];
 
+int foodEaten = 0;
+
 void setup()
 {
   size(500, 500);
@@ -52,6 +54,15 @@ void draw()
         stroke(0);
         textSize(30);
         text("Game Over", 150, 150);
+        
+        if (foodEaten != 0)
+        {
+          text("You ate " + foodEaten + " food", 150, 180);
+        }
+        else
+        {
+          text("You ate no food!", 150, 180);
+        }
   }
      
 }
@@ -69,7 +80,7 @@ void foodEaten()
         GameObject othergo = gameObjects.get(j);
         if (othergo instanceof Food)
         
-           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 7)
+           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
            {
              fill(255);
              gameObjects.remove(othergo);
@@ -80,6 +91,8 @@ void foodEaten()
               //making snake bigger everytime!
               go.snakesize += 2;
               go.render();
+              
+              foodEaten++;
            }  
         }  
       }
