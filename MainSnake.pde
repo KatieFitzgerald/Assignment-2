@@ -1,5 +1,6 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 int food = 0;
+boolean gameOver = false;
 
 void setup()
 {
@@ -85,9 +86,18 @@ void dead()
         {
            if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
            {
-             println("Hit wall");
+             gameOver = true;
            }  
         }  
+      }
+      
+      if (gameOver == true)
+      {
+        fill(0);
+        stroke(0);
+        text("Game Over", 150, 150);
+        
+        exit();
       }
     
 }
