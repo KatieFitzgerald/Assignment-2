@@ -19,18 +19,29 @@ void setup()
 
 void draw()
 {
-  
-  for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
+  if (gameOver == false)
   {
-    GameObject go = gameObjects.get(i);
+    for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
+    {
+      GameObject go = gameObjects.get(i);
+      
+      go.render();
+      go.update();
+      go.keyPressed();
+      
+      foodEaten();
+      dead();
+  
+    }
     
-    go.render();
-    go.update();
-    go.keyPressed();
-    
-    foodEaten();
-    dead();
-
+  }
+  
+  else
+  {
+        fill(0);
+        stroke(0);
+        textSize(30);
+        text("Game Over", 150, 150);
   }
      
 }
@@ -87,17 +98,9 @@ void dead()
            if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
            {
              gameOver = true;
+             println(go.headX[1], go.headY[1]);
            }  
         }  
-      }
-      
-      if (gameOver == true)
-      {
-        fill(0);
-        stroke(0);
-        text("Game Over", 150, 150);
-        
-        exit();
       }
     
 }
