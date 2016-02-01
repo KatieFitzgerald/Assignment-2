@@ -1,5 +1,4 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-int food = 0;
 boolean gameOver = false;
 
 void setup()
@@ -41,7 +40,7 @@ void draw()
         fill(0);
         stroke(0);
         textSize(30);
-        text("Game Over", 150, 150);
+        text("Game Over Loser", 150, 150);
   }
      
 }
@@ -83,26 +82,29 @@ void dead()
     GameObject go = gameObjects.get(i);
     if(go instanceof Snake)
     {
-           if (int (dist(go.headX[1], go.headY[1], go.headY[go.i], go.headX[go.i])) < 1)
+        for(int j = 2; /* nb 2 or else it will be always touching the head*/ j <= go.snakesize; j++)
+        {
+           if (go.headX[1] == go.headX[j] && go.headY[1] == go.headY[j])
            {
              println("Dead");
            }  
         }  
-    }    
-      for(int i = gameObjects.size() - 1; i >= 0; i --)
-     {
-        GameObject go = gameObjects.get(i);
-        
-        if(go instanceof Snake)
-        {
-           if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
-           {
-             gameOver = true;
-             println(go.headX[1], go.headY[1]);
-           }  
-        }  
-      }
-    
+    }   
+ }
+    for(int i = gameObjects.size() - 1; i >= 0; i --)
+   {
+      GameObject go = gameObjects.get(i);
+      
+      if(go instanceof Snake)
+      {
+         if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
+         {
+           gameOver = true;
+           println(go.headX[1], go.headY[1]);
+         }  
+      }  
+    }
+  
 }
   
   
