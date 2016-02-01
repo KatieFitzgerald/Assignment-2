@@ -8,7 +8,7 @@ class Food extends GameObject
   {
 
     fill(225, 0, 0);
-    rect(randomX, randomY, 8, 8);
+    rect(randomX, randomY, 10, 10);
   }
 
   void update()

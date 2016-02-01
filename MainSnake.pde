@@ -1,5 +1,6 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean gameOver = false;
+boolean[] keys = new boolean[512];
 
 void setup()
 {
@@ -15,6 +16,16 @@ void setup()
   gameObjects.add(food);
   
 }
+
+void keyPressed()
+{
+  keys[keyCode] = true;
+}
+void keyReleased()
+{
+  keys[keyCode] = false;
+}
+
 
 void draw()
 {
@@ -58,7 +69,7 @@ void foodEaten()
         GameObject othergo = gameObjects.get(j);
         if (othergo instanceof Food)
         
-           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
+           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 7)
            {
              fill(255);
              gameObjects.remove(othergo);
@@ -82,11 +93,12 @@ void dead()
     GameObject go = gameObjects.get(i);
     if(go instanceof Snake)
     {
-        for(int j = 2; /* nb 2 or else it will be always touching the head*/ j <= go.snakesize; j++)
+      //counter starts at 2 or it will be counting in the head
+        for(int j = 2; j <= go.snakesize; j++)
         {
            if (go.headX[1] == go.headX[j] && go.headY[1] == go.headY[j])
            {
-             println("Dead");
+             gameOver = true;
            }  
         }  
     }   
