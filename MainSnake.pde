@@ -7,7 +7,7 @@ void setup()
   background(255);
   //game goes too fast
   frameRate(15);
-  
+
   Snake snake = new Snake();
   Food food = new Food();
   
@@ -76,11 +76,7 @@ void dead()
              println("Dead");
            }  
         }  
-    }
-   
-   if(frameCount == 40)
-   {
-         
+    }    
       for(int i = gameObjects.size() - 1; i >= 0; i --)
      {
         GameObject go = gameObjects.get(i);
@@ -93,7 +89,6 @@ void dead()
            }  
         }  
       }
-   }
     
 }
   

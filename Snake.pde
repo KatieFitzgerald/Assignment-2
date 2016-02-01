@@ -3,9 +3,11 @@ class Snake extends GameObject
 {
   Snake()
   {
-
+    //starting point
+    headX[1]=width/2;
+    headY[1]=height/2;
   }
-  
+
   
 void update()
 {
@@ -65,7 +67,6 @@ void render()
   rect(headX[1], headY[1], 12, 12);
   
   //makes the snake not a continuous line
-  
   fill(255);
   stroke(255);
   rect(headX[snakesize], headY[snakesize], 12, 12);
