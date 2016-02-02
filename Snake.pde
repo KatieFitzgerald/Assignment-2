@@ -11,7 +11,7 @@ class Snake extends GameObject
   
 void update()
 {
-  for(i = snakesize; i > 0; i--)
+  for(i = snakelen; i > 0; i--)
   {
     //decides how big the snake is going to be
     if (i != 1)
@@ -69,7 +69,7 @@ void render()
   //makes the snake not a continuous line
   fill(255);
   stroke(255);
-  rect(headX[snakesize], headY[snakesize], 12, 12);
+  rect(headX[snakelen], headY[snakelen], 12, 12);
   
 }
 

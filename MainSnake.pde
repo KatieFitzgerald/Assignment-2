@@ -7,6 +7,7 @@ int foodEaten = 0;
 void setup()
 {
   size(500, 500);
+  println(width, height);
   background(255);
   //game goes too fast
   frameRate(15);
@@ -31,15 +32,25 @@ void keyReleased()
 
 void draw()
 {
+  
+  //border
+  fill(0);
+  stroke(0);
+  rect(0, 0, 12, height);
+  rect(0, 0, width, 12);
+  rect(0, height-12, width, 12);
+  rect(width-12, 0, width, height);
+  
   if (gameOver == false)
   {
     for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
     {
       GameObject go = gameObjects.get(i);
       
+      go.keyPressed();
       go.render();
       go.update();
-      go.keyPressed();
+      //go.keyPressed();
       
       foodEaten();
       dead();
@@ -89,7 +100,7 @@ void foodEaten()
               gameObjects.add(food);
               
               //making snake bigger everytime!
-              go.snakesize += 2;
+              go.snakelen += 2;
               go.render();
               
               foodEaten++;
@@ -107,7 +118,7 @@ void dead()
     if(go instanceof Snake)
     {
       //counter starts at 2 or it will be counting in the head
-        for(int j = 2; j <= go.snakesize; j++)
+        for(int j = 2; j <= go.snakelen; j++)
         {
            if (go.headX[1] == go.headX[j] && go.headY[1] == go.headY[j])
            {
@@ -122,7 +133,7 @@ void dead()
       
       if(go instanceof Snake)
       {
-         if (go.headX[1] >=  width|| go.headY[1] >= height || go.headX[1] <= 0 || go.headY[1] <= 0)
+         if (go.headX[1] >=  width-12 || go.headY[1] >= height - 12 || go.headX[1] <= 0 || go.headY[1] <= 0)
          {
            gameOver = true;
            println(go.headX[1], go.headY[1]);

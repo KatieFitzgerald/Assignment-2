@@ -8,19 +8,22 @@ class Food extends GameObject
   {
     
    //some error checking to make sure new food new spawns inside snake
-    for(int j = 0;  j <= snakesize;  j++)
+    for(int j = 0;  j <= snakelen;  j++)
     {
        if (randomX != headX[j] && randomY != headY[j])
        {       
-        fill(225, 0, 0);
-        rect(randomX, randomY, 10, 10);
+          fill(225, 0, 0);
+          rect(randomX, randomY, 10, 10);
        }  
        else
        {
-          randomX = int(random(400));
-          randomY = int(random(400));
+          int randomNewX;
+          int randomNewY;
           
-          rect(randomX, randomY, 10, 10);
+          randomNewX = int(random(400));
+          randomNewY = int(random(400));
+          
+          rect(randomNewX, randomNewY, 10, 10);
        }
        
     }  
