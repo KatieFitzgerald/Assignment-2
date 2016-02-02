@@ -30,28 +30,28 @@ void update()
         //moving right
         case 0:
         {
-          headX[i] += 12;
+          headX[i] += pixel;
         }
         break;
         
         //moving up
         case 90:
         {
-          headY[i] -= 12;
+          headY[i] -= pixel;
         }
         break;
         
         //moving left
         case 180:
         {
-          headX[i] -= 12;
+          headX[i] -= pixel;
         }
         break;
         
         //moving down
         case 270:
         {
-          headY[i] += 12;
+          headY[i] += pixel;
         }
         break;
       }
@@ -64,12 +64,12 @@ void render()
 {
    
   fill(0, 153, 0);
-  rect(headX[1], headY[1], 12, 12);
+  rect(headX[1], headY[1], pixel, pixel);
   
   //makes the snake not a continuous line
   fill(255);
   stroke(255);
-  rect(headX[snakelen], headY[snakelen], 12, 12);
+  rect(headX[snakelen], headY[snakelen], pixel, pixel);
   
 }
 

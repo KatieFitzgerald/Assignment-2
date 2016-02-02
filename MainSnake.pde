@@ -2,6 +2,8 @@ ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean gameOver = false;
 boolean[] keys = new boolean[512];
 
+int pixel = 10;
+
 int foodEaten = 0;
 
 void setup()
@@ -32,14 +34,13 @@ void keyReleased()
 
 void draw()
 {
-  
   //border
   fill(0);
   stroke(0);
-  rect(0, 0, 12, height);
-  rect(0, 0, width, 12);
-  rect(0, height-12, width, 12);
-  rect(width-12, 0, width, height);
+  rect(0, 0, pixel, height);
+  rect(0, 0, width, pixel);
+  rect(0, height-pixel, width, pixel);
+  rect(width-pixel, 0, width, height);
   
   if (gameOver == false)
   {
@@ -100,7 +101,7 @@ void foodEaten()
               gameObjects.add(food);
               
               //making snake bigger everytime!
-              go.snakelen += 2;
+              go.snakelen += 1;
               go.render();
               
               foodEaten++;
@@ -133,7 +134,7 @@ void dead()
       
       if(go instanceof Snake)
       {
-         if (go.headX[1] >=  width-12 || go.headY[1] >= height - 12 || go.headX[1] <= 0 || go.headY[1] <= 0)
+         if (go.headX[1] >=  width-pixel || go.headY[1] >= height - pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
          {
            gameOver = true;
            println(go.headX[1], go.headY[1]);

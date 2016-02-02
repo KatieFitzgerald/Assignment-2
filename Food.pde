@@ -13,15 +13,15 @@ class Food extends GameObject
        if (randomX != headX[j] && randomY != headY[j])
        {       
           fill(225, 0, 0);
-          rect(randomX, randomY, 10, 10);
+          rect(randomX, randomY, pixel, pixel);
        }  
        else
        {
           int randomNewX;
           int randomNewY;
           
-          randomNewX = int(random(400));
-          randomNewY = int(random(400));
+          randomNewX = int(random(48));
+          randomNewY = int(random(48));
           
           rect(randomNewX, randomNewY, 10, 10);
        }
