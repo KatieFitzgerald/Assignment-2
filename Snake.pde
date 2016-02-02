@@ -4,20 +4,31 @@ class Snake extends GameObject
   Snake()
   {
     //starting point
-    headX[1]=width/2;
-    headY[1]=height/2;
+    headX[1]= width / 2;
+    headY[1]=height / 2;
   }
 
+void render()
+{
+   
+  fill(0, 153, 0);
+  rect(headX[1], headY[1], pixel, pixel);
+  
+  //makes the snake not a continuous line
+  fill(255);
+  stroke(255);
+  rect(headX[snakelen], headY[snakelen], pixel, pixel);
+  
+}
   
 void update()
 {
   for(i = snakelen; i > 0; i--)
   {
-    //decides how big the snake is going to be
+    //moves the snake
     if (i != 1)
     {
-      //just slime, no snake
-      //shift all the coordinates back one array
+      //by shifting all the coordinates back one array
       headX[i] = headX[i-1];
       headY[i] = headY[i-1];
      
@@ -60,18 +71,6 @@ void update()
    
 }
 
-void render()
-{
-   
-  fill(0, 153, 0);
-  rect(headX[1], headY[1], pixel, pixel);
-  
-  //makes the snake not a continuous line
-  fill(255);
-  stroke(255);
-  rect(headX[snakelen], headY[snakelen], pixel, pixel);
-  
-}
 
 
 void keyPressed()

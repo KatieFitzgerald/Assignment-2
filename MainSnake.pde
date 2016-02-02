@@ -2,8 +2,6 @@ ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean gameOver = false;
 boolean[] keys = new boolean[512];
 
-int pixel = 10;
-
 int foodEaten = 0;
 
 void setup()
@@ -34,24 +32,27 @@ void keyReleased()
 
 void draw()
 {
-  //border
-  fill(0);
-  stroke(0);
-  rect(0, 0, pixel, height);
-  rect(0, 0, width, pixel);
-  rect(0, height-pixel, width, pixel);
-  rect(width-pixel, 0, width, height);
-  
   if (gameOver == false)
   {
     for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
     {
       GameObject go = gameObjects.get(i);
       
-      go.keyPressed();
+        //border
+      fill(0);
+      stroke(0);
+      rect(0, 0, go.pixel, height);
+      rect(0, 0, width, go.pixel);
+      rect(0, height-go.pixel, width, go.pixel);
+      rect(width-go.pixel, 0, width, height);
+       
+       
+    if(go instanceof Snake)
+    {
+      ((Snake)go).keyPressed();
+    }
       go.render();
       go.update();
-      //go.keyPressed();
       
       foodEaten();
       dead();
@@ -92,18 +93,30 @@ void foodEaten()
         GameObject othergo = gameObjects.get(j);
         if (othergo instanceof Food)
         
-           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 9)
+           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 8)
            {
-             fill(255);
+             
              gameObjects.remove(othergo);
+             
+             background(255);
+                   
+              //redraw border to make it not appear glitchy
+              fill(0);
+              stroke(0);
+              rect(0, 0, go.pixel, height);
+              rect(0, 0, width, go.pixel);
+              rect(0, height-go.pixel, width, go.pixel);
+              rect(width-go.pixel, 0, width, height);
 
               Food food = new Food();
               gameObjects.add(food);
               
+              
               //making snake bigger everytime!
               go.snakelen += 1;
-              go.render();
               
+              go.render();
+
               foodEaten++;
            }  
         }  
@@ -134,7 +147,7 @@ void dead()
       
       if(go instanceof Snake)
       {
-         if (go.headX[1] >=  width-pixel || go.headY[1] >= height - pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
+         if (go.headX[1] >=  width-go.pixel || go.headY[1] >= height - go.pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
          {
            gameOver = true;
            println(go.headX[1], go.headY[1]);

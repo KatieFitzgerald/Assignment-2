@@ -28,14 +28,10 @@ class Food extends GameObject
        
     }  
   }
-
+  
   void update()
   {
-  
+    
   }
-  
-  void keyPressed()
-  {
 
-  }
 }
