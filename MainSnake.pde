@@ -1,11 +1,9 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-Boolean mode = false;
 boolean gameOver = false;
 boolean[] keys = new boolean[512];
 
 int foodEaten = 0;
 int increase = 15;
-
 
 //Control p5 
 import controlP5.*;
@@ -47,9 +45,9 @@ public void controlEvent(ControlEvent theEvent)
      
   if (theEvent.isController())
   {
-    if (theEvent.getName() == "Play Again")
+    if (theEvent.getName() == "Go Again")
     {
-      mode = true;
+      //restart game
     }
   }
 }
@@ -91,7 +89,7 @@ void draw()
     textSize(30);
     text("Game Over", 150, 150);
     
-     cp5.addButton("Play Again")
+     cp5.addButton("Go Again")
      .setValue(1)
      .setPosition(150,210)
      .setSize(200,19);
@@ -181,7 +179,7 @@ void dead()
     
     if(go instanceof Snake)
     {
-      if (go.headX[1] >=  width-go.pixel || go.headY[1] >= height - go.pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
+      if (go.headX[1] >=  width- go.pixel || go.headY[1] >= height - go.pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
       {
         gameOver = true;
         println(go.headX[1], go.headY[1]);
