@@ -1,7 +1,6 @@
 abstract class GameObject
 {
   int angle = 0;
-  
   int pixel = 10;
   
   int randomX = int(random(10,480));
