@@ -85,23 +85,7 @@ void draw()
   }
   else
   {
-    fill(0);
-    textSize(30);
-    text("Game Over", 150, 150);
-    
-     cp5.addButton("Go Again")
-     .setValue(1)
-     .setPosition(150,210)
-     .setSize(200,19);
-    
-    if (foodEaten != 0)
-    {
-      text("You ate " + foodEaten + " food", 150, 180);
-    }
-    else
-    {
-      text("You ate no food!", 150, 180);
-    }
+   gameOver();
   }
 
    
@@ -186,5 +170,45 @@ void dead()
       }
     }
   }
+  
+}
+
+void gameOver()
+{
+  background(255);
+  
+   fill(0);
+    textSize(30);
+    text("Game Over", 150, 150);
+    
+     cp5.addButton("Go Again")
+     .setValue(1)
+     .setPosition(150,200)
+     .setSize(200,19);
+    
+    if (foodEaten != 0)
+    {
+      text("You ate " + foodEaten + " food", 150, 180);
+    }
+    else
+    {
+      text("You ate no food!", 150, 180);
+    } 
+    
+  fill(0, 225, 0);
+  stroke(0, 255, 0);
+  //body
+  rect(0, 250, 250, 70);
+  rect(230, 210, 100, 150);
+  //eyes
+  fill(0);
+  stroke(0);
+  rect(290, 210, 40, 40);
+  rect(290, 320, 40, 40);
+  //tongue
+  fill(225, 0, 0);
+  stroke(255, 0, 0);
+  rect(330, 280, 30, 10);
+  
   
 }
