@@ -17,7 +17,7 @@ Creating a game using processing
 * ~~Make a way of losing~~
 * ~~Make a high score counter~~
 * Consider obstacles 
-* Consider increasing framerate
+* ~~Consider increasing framerate~~
 * SMOOTH OUT BUGS
 	* Bugs:
 		* sometimes food can only be eaten at certain angle

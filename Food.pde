@@ -23,6 +23,7 @@ class Food extends GameObject
         randomNewX = int(random(48));
         randomNewY = int(random(48));
         
+        noStroke();
         rect(randomNewX, randomNewY, 10, 10);
       }
       

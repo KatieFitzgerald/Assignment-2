@@ -4,6 +4,7 @@ boolean gameOver = false;
 boolean[] keys = new boolean[512];
 
 int foodEaten = 0;
+int increase = 15;
 
 
 //Control p5 
@@ -14,10 +15,11 @@ ControlP5 cp5;
 void setup()
 {
   size(500, 500);
-  println(width, height);
+
   background(255);
-  //game goes too fast
-  frameRate(15);
+  
+  //game goes too fast otherwise
+  frameRate(increase);
   
    //create buttons
   cp5 = new ControlP5(this);
@@ -86,7 +88,6 @@ void draw()
   else
   {
     fill(0);
-    stroke(0);
     textSize(30);
     text("Game Over", 150, 150);
     
@@ -104,13 +105,7 @@ void draw()
       text("You ate no food!", 150, 180);
     }
   }
-  
-  if (mode == true)
-  {
-   
-    println("now true");
-       
-  }
+
    
 }
 
@@ -153,6 +148,9 @@ void foodEaten()
             go.render();
             
             foodEaten++;
+            
+            increase+=2;
+            frameRate(increase);
           }
         }
       }

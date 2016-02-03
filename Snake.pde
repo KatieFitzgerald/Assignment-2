@@ -12,6 +12,7 @@ class Snake extends GameObject
   {
     
     fill(0, 153, 0);
+    stroke(0);
     rect(headX[1], headY[1], pixel, pixel);
     
     //makes the snake not a continuous line
