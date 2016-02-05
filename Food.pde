@@ -16,7 +16,7 @@ class Food extends GameObject
         rect(randomX, randomY, pixel, pixel);
       }
       else
-      {
+     {
         int randomNewX;
         int randomNewY;
         

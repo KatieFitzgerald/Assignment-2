@@ -5,10 +5,6 @@ boolean[] keys = new boolean[512];
 int foodEaten = 0;
 int increase = 15;
 
-//Control p5 
-import controlP5.*;
-ControlP5 cp5;
-
 
 void setup()
 {
@@ -18,9 +14,6 @@ void setup()
   
   //game goes too fast otherwise
   frameRate(increase);
-  
-   //create buttons
-  cp5 = new ControlP5(this);
   
   Snake snake = new Snake();
   Food food = new Food();
@@ -37,19 +30,6 @@ void keyPressed()
 void keyReleased()
 {
   keys[keyCode] = false;
-}
-
-//check if the buttons are pressed
-public void controlEvent(ControlEvent theEvent)
-{
-     
-  if (theEvent.isController())
-  {
-    if (theEvent.getName() == "Go Again")
-    {
-      //restart game
-    }
-  }
 }
 
 
@@ -109,8 +89,7 @@ void foodEaten()
           {
             
             gameObjects.remove(othergo);
-            
-            background(255);
+
             
             //redraw border to make it not appear glitchy
             fill(0);
@@ -180,12 +159,7 @@ void gameOver()
    fill(0);
     textSize(30);
     text("Game Over", 150, 150);
-    
-     cp5.addButton("Go Again")
-     .setValue(1)
-     .setPosition(150,200)
-     .setSize(200,19);
-    
+
     if (foodEaten != 0)
     {
       text("You ate " + foodEaten + " food", 150, 180);
@@ -199,16 +173,16 @@ void gameOver()
   stroke(0, 255, 0);
   //body
   rect(0, 250, 250, 70);
-  rect(230, 210, 100, 150);
+  rect(210, 220, 70, 120);
   //eyes
   fill(0);
   stroke(0);
-  rect(290, 210, 40, 40);
-  rect(290, 320, 40, 40);
+  rect(260, 230, 20, 20);
+  rect(260, 300, 20, 20);
   //tongue
   fill(225, 0, 0);
   stroke(255, 0, 0);
-  rect(330, 280, 30, 10);
+  rect(280, 270, 30, 10);
   
   
 }

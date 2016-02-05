@@ -1,5 +1,6 @@
 abstract class GameObject
 {
+  //fields
   int angle = 0;
   int pixel = 10;
   
