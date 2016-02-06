@@ -87,8 +87,10 @@ void foodEaten()
           
           if (int (dist(othergo.randomX, othergo.randomY, go.headX[1], go.headY[1])) < 8)
           {
-            
+           ((Food) othergo).increaseLen((Snake)go);
             gameObjects.remove(othergo);
+            
+            //background redraw
 
             
             //redraw border to make it not appear glitchy
@@ -101,13 +103,7 @@ void foodEaten()
             
             Food food = new Food();
             gameObjects.add(food);
-            
-            
-            //making snake bigger everytime!
-            go.snakelen += 1;
-            
-            go.render();
-            
+
             foodEaten++;
             
             increase+=2;
@@ -160,14 +156,7 @@ void gameOver()
     textSize(30);
     text("Game Over", 150, 150);
 
-    if (foodEaten != 0)
-    {
-      text("You ate " + foodEaten + " food", 150, 180);
-    }
-    else
-    {
-      text("You ate no food!", 150, 180);
-    } 
+    text("Score: " + foodEaten, 160, 180);
     
   fill(0, 225, 0);
   stroke(0, 255, 0);
@@ -183,6 +172,5 @@ void gameOver()
   fill(225, 0, 0);
   stroke(255, 0, 0);
   rect(280, 270, 30, 10);
-  
   
 }

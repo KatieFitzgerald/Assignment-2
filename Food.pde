@@ -1,7 +1,14 @@
-class Food extends GameObject
+class Food extends GameObject implements SnakeFood
 {
   Food()
   {
+  }
+  
+   // From the interface. This class won't compile unless it has this method  
+  void increaseLen(Snake snake)
+  {
+    snake.snakelen ++;
+    snake.render();
   }
   
   void render()
