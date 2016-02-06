@@ -10,7 +10,7 @@ void setup()
 {
   size(600, 600);
 
-  background(255);
+  background(102, 204, 0);
   
   //game goes too fast otherwise
   frameRate(increase);
@@ -41,15 +41,8 @@ void draw()
     {
       GameObject go = gameObjects.get(i);
       
-      //border
-      fill(0);
-      stroke(0);
-      rect(0, 0, go.pixel, height);
-      rect(0, 0, width, go.pixel);
-      rect(0, height-go.pixel, width, go.pixel);
-      rect(width-go.pixel, 0, width, height);
-      
-      
+      phone();
+
       if(go instanceof Snake)
       {
         ((Snake)go).keyPressed();
@@ -91,7 +84,7 @@ void foodEaten()
             gameObjects.remove(othergo);
          
            //create a white "filler" food in place of the old one
-            fill(255);
+            fill(102, 204, 0);
             rect(othergo.randomX, othergo.randomY, othergo.pixel, othergo.pixel);
 
             Food food = new Food();
@@ -131,7 +124,7 @@ void dead()
     
     if(go instanceof Snake)
     {
-      if (go.headX[1] >=  width- go.pixel || go.headY[1] >= height - go.pixel || go.headX[1] <= 0 || go.headY[1] <= 0)
+      if (go.headX[1] >=  width- 40 || go.headY[1] >= height - 80 || go.headX[1] <= 40 || go.headY[1] <= 40)
       {
         gameOver = true;
         println(go.headX[1], go.headY[1]);
@@ -165,5 +158,33 @@ void gameOver()
   fill(225, 0, 0);
   stroke(255, 0, 0);
   rect(280, 270, 30, 10);
+  
+}
+
+void phone()
+{
+      fill(255);
+      stroke(255);
+      rect(0, height- 90,width, 90);
+      
+      fill(0);
+      stroke(0);
+      rect(40, 0, 10, height);
+      rect(40, 40, width, 10);
+  
+      //border
+      fill(0, 0, 51);
+      stroke(0, 0, 51);
+      rect(0, 0, 40, height); //left
+      rect(0, 0, width, 40); //top
+      rect(0, height-80, width, 80); //bottom
+      rect(width-40, 0, width, height); //right
+      
+      //buttons
+      fill(255);
+      stroke(255);
+      rect(40, height - 60, 153, 40);
+      rect(220, height - 60, 153, 40);
+      rect(400, height - 60, 153, 40);
   
 }

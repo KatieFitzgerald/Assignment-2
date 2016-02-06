@@ -19,7 +19,8 @@ class Food extends GameObject implements SnakeFood
     {
       if (randomX != headX[j] && randomY != headY[j])
       {
-        fill(225, 0, 0);
+        fill(0);
+        stroke(0);
         rect(randomX, randomY, pixel, pixel);
       }
       else

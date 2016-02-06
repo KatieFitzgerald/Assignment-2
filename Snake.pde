@@ -11,13 +11,13 @@ class Snake extends GameObject
   void render()
   {
     
-    fill(0, 153, 0);
-    stroke(0);
+    fill(0);
+    stroke(102, 204, 0);
     rect(headX[1], headY[1], pixel, pixel);
     
     //makes the snake not a continuous line
-    fill(255);
-    stroke(255);
+    fill(102, 204, 0);
+    stroke(102, 204, 0);
     rect(headX[snakelen], headY[snakelen], pixel, pixel);
     
   }
