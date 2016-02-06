@@ -8,7 +8,7 @@ int increase = 15;
 
 void setup()
 {
-  size(500, 500);
+  size(600, 600);
 
   background(255);
   
