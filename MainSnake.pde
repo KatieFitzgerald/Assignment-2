@@ -89,18 +89,11 @@ void foodEaten()
           {
            ((Food) othergo).increaseLen((Snake)go);
             gameObjects.remove(othergo);
-            
-            //background redraw
+         
+           //create a white "filler" food in place of the old one
+            fill(255);
+            rect(othergo.randomX, othergo.randomY, othergo.pixel, othergo.pixel);
 
-            
-            //redraw border to make it not appear glitchy
-            fill(0);
-            stroke(0);
-            rect(0, 0, go.pixel, height);
-            rect(0, 0, width, go.pixel);
-            rect(0, height-go.pixel, width, go.pixel);
-            rect(width-go.pixel, 0, width, height);
-            
             Food food = new Food();
             gameObjects.add(food);
 

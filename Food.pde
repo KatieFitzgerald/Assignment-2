@@ -40,6 +40,7 @@ class Food extends GameObject implements SnakeFood
   void update()
   {
     
+    
   }
   
 }
