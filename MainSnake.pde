@@ -4,12 +4,11 @@ boolean[] keys = new boolean[512];
 
 int foodEaten = 0;
 int increase = 15;
-
+int highscore[];
 
 void setup()
 {
   size(600, 600);
-
   background(102, 204, 0);
   
   //game goes too fast otherwise
@@ -20,6 +19,9 @@ void setup()
   
   gameObjects.add(snake);
   gameObjects.add(food);
+  
+  String[] score = loadStrings("scores.txt");
+  int highscore[] = int(split(score[0],','));
   
 }
 
@@ -35,33 +37,32 @@ void keyReleased()
 
 void draw()
 {
-  if (gameOver == false)
-  {
-    for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
+    if (gameOver == false)
     {
-      GameObject go = gameObjects.get(i);
-      
-      phone();
-
-      if(go instanceof Snake)
+      for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
       {
-        ((Snake)go).keyPressed();
+        GameObject go = gameObjects.get(i);
+        
+        phone();
+  
+        if(go instanceof Snake)
+        {
+          ((Snake)go).keyPressed();
+        }
+        go.render();
+        go.update();
+        
+        foodEaten();
+        dead();
+        
       }
-      go.render();
-      go.update();
-      
-      foodEaten();
-      dead();
       
     }
+    else
+    {
+     gameOver();
+    }
     
-  }
-  else
-  {
-   gameOver();
-  }
-
-   
 }
 
 
@@ -83,7 +84,7 @@ void foodEaten()
            ((Food) othergo).increaseLen((Snake)go);
             gameObjects.remove(othergo);
          
-           //create a white "filler" food in place of the old one
+           //create a "filler" food in place of the old one
             fill(102, 204, 0);
             rect(othergo.randomX, othergo.randomY, othergo.pixel, othergo.pixel);
 
@@ -138,11 +139,9 @@ void gameOver()
 {
   background(255);
   
-   fill(0);
-    textSize(30);
-    text("Game Over", 150, 150);
-
-    text("Score: " + foodEaten, 160, 180);
+ fill(0);
+  textSize(30);
+  text("Game Over", 150, 150);
     
   fill(0, 225, 0);
   stroke(0, 255, 0);
@@ -158,6 +157,7 @@ void gameOver()
   fill(225, 0, 0);
   stroke(255, 0, 0);
   rect(280, 270, 30, 10);
+
   
 }
 
@@ -201,5 +201,23 @@ void phone()
       rect(width - 540, height - 45, 30, 20);
       rect(width - 460, height - 45, 30, 20);
       rect(width - 540, height - 50, 110, 10);
+  
+}
+
+
+void highScore()
+{
+  if(foodEaten > highscore[0])
+  {
+    highscore[0] = foodEaten;
+    saveStrings("scores.txt", highscore);
+    
+  }
+  else
+  {
+    
+  }
+  
+  
   
 }
