@@ -32,7 +32,7 @@ class Food extends GameObject implements SnakeFood
         randomNewY = int(random(48));
         
         noStroke();
-        rect(randomNewX, randomNewY, 10, 10);
+        rect(randomNewX, randomNewY, pixel, pixel);
       }
       
     }

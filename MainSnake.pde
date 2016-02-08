@@ -183,8 +183,23 @@ void phone()
       //buttons
       fill(255);
       stroke(255);
-      rect(40, height - 60, 153, 40);
-      rect(220, height - 60, 153, 40);
-      rect(400, height - 60, 153, 40);
+      rect(40, height - 60, 153, 40);//first
+      rect(220, height - 60, 153, 40);//second
+      rect(400, height - 60, 153, 40);//third
+      
+      //button details
+      //hang up button
+      fill(255, 0, 0);
+      stroke(255, 0, 0);
+      rect(width - 180, height - 45, 30, 20);
+      rect(width - 100, height - 45, 30, 20);
+      rect(width - 180, height - 50, 110, 10);
+      
+      //pick up button
+      fill(0, 255, 0);
+      stroke(0, 255, 0);
+      rect(width - 540, height - 45, 30, 20);
+      rect(width - 460, height - 45, 30, 20);
+      rect(width - 540, height - 50, 110, 10);
   
 }
