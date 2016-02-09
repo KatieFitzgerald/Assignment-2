@@ -4,8 +4,8 @@ class Snake extends GameObject
   Snake()
   {
     //starting point
-    headX[1]= width / 2;
-    headY[1]=height / 2;
+    headX[1] = width / 2;
+    headY[1] = height / 2;
   }
   
   void render()

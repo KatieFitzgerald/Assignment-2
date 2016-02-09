@@ -4,7 +4,7 @@ class Food extends GameObject implements SnakeFood
   {
   }
   
-   // From the interface. This class won't compile unless it has this method  
+  //interface
   void increaseLen(Snake snake)
   {
     snake.snakelen ++;
@@ -28,8 +28,8 @@ class Food extends GameObject implements SnakeFood
         int randomNewX;
         int randomNewY;
         
-        randomNewX = int(random(48));
-        randomNewY = int(random(48));
+        randomNewX = int(random(380));
+        randomNewY = int(random(380));
         
         noStroke();
         rect(randomNewX, randomNewY, pixel, pixel);

@@ -1,11 +1,12 @@
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-boolean gameOver = false;
+
 boolean[] keys = new boolean[512];
 
 int foodEaten = 0;
 int increase = 15;
-int highscores[];
+
 boolean startGame = false;
+boolean gameOver = false;
 
 void setup()
 {
@@ -38,8 +39,7 @@ void keyReleased()
 
 void draw()
 { 
-  
-    if (keyCode == SHIFT)
+  if (keyCode == SHIFT)
   {
     startGame = true;
   }
@@ -49,11 +49,11 @@ void draw()
   {
     if (gameOver == false)
     {
-      for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
+      for(int i = gameObjects.size() - 1 ; i >= 0; i --)
       {
         GameObject go = gameObjects.get(i);
         
-        phone();
+         go.phone();
   
         if(go instanceof Snake)
         {
@@ -135,10 +135,10 @@ void dead()
     
     if(go instanceof Snake)
     {
-      if (go.headX[1] >=  width- 40 || go.headY[1] >= height - 80 || go.headX[1] <= 40 || go.headY[1] <= 40)
+      if (go.headX[1] >=  width- 40 || go.headY[1] >= height - 90 || go.headX[1] <= 40 || go.headY[1] <= 40)
       {
         gameOver = true;
-        println(go.headX[1], go.headY[1]);
+        
       }
     }
   }
@@ -146,56 +146,26 @@ void dead()
 }
 
 void gameOver()
-{   
-
-  background(255);
+{ 
+  background(0);
   textSize(30);
   fill(102, 204, 0);
   stroke(102, 204, 0);
-  text("Game Over", 200, 290);
+  text("Game Over!", 200, 290);
   text("Score: " +foodEaten, 200, 320);
   
-}
-
-void phone()
-{
-  fill(255);
-  stroke(255);
-  rect(0, height- 90,width, 90);
-  
-  fill(0);
+  //snake animation
+  fill(102, 204, 0);
   stroke(0);
-  rect(40, 0, 10, height);
-  rect(40, 40, width, 10);
-
-  //border
-  fill(0, 0, 51);
-  stroke(0, 0, 51);
-  rect(0, 0, 40, height); //left
-  rect(0, 0, width, 40); //top
-  rect(0, height-80, width, 80); //bottom
-  rect(width-40, 0, width, height); //right
+  rect(0, 400, 60, 60);
+  rect(70, 400, 60, 60);
+  rect(140, 400, 60, 60);
+  rect(210, 400, 60, 60);
   
-  //buttons
-  fill(255);
-  stroke(255);
-  rect(40, height - 60, 153, 40);//first
-  rect(220, height - 60, 153, 40);//second
-  rect(400, height - 60, 153, 40);//third
-  
-  //button details
-  //hang up button
+  //eye
+  fill(0);
+  rect(240, 410, 20, 20);
+  //tongue
   fill(255, 0, 0);
-  stroke(255, 0, 0);
-  rect(width - 180, height - 45, 30, 20);
-  rect(width - 100, height - 45, 30, 20);
-  rect(width - 180, height - 50, 110, 10);
-  
-  //pick up button
-  fill(0, 255, 0);
-  stroke(0, 255, 0);
-  rect(width - 540, height - 45, 30, 20);
-  rect(width - 460, height - 45, 30, 20);
-  rect(width - 540, height - 50, 110, 10);
-  
+  rect(270, 440, 15, 5);
 }
