@@ -4,25 +4,30 @@ boolean[] keys = new boolean[512];
 
 int foodEaten = 0;
 int increase = 15;
-int highscore[];
+int highscores[];
+boolean startGame = false;
 
 void setup()
 {
   size(600, 600);
   background(102, 204, 0);
   
+ 
+  {   
+    textSize(30);
+    text("Press SHIFT to begin", 150, 150);
+    text("Use ARROWS to navigate", 150, 180);
+  }
+  
+ 
   //game goes too fast otherwise
   frameRate(increase);
-  
   Snake snake = new Snake();
   Food food = new Food();
   
   gameObjects.add(snake);
   gameObjects.add(food);
-  
-  String[] score = loadStrings("scores.txt");
-  int highscore[] = int(split(score[0],','));
-  
+    
 }
 
 void keyPressed()
@@ -37,6 +42,14 @@ void keyReleased()
 
 void draw()
 {
+    if (keyCode == SHIFT)
+  {
+    startGame = true;
+  }
+    
+    
+  if (startGame == true)
+  {
     if (gameOver == false)
     {
       for(int i = gameObjects.size() - 1 ; i >= 0   ; i --)
@@ -60,9 +73,9 @@ void draw()
     }
     else
     {
-     gameOver();
+     //gameOver();
     }
-    
+  }
 }
 
 
@@ -136,9 +149,7 @@ void dead()
 }
 
 void gameOver()
-{
-  background(255);
-  
+{  
  fill(0);
   textSize(30);
   text("Game Over", 150, 150);
@@ -163,61 +174,43 @@ void gameOver()
 
 void phone()
 {
-      fill(255);
-      stroke(255);
-      rect(0, height- 90,width, 90);
-      
-      fill(0);
-      stroke(0);
-      rect(40, 0, 10, height);
-      rect(40, 40, width, 10);
+  fill(255);
+  stroke(255);
+  rect(0, height- 90,width, 90);
   
-      //border
-      fill(0, 0, 51);
-      stroke(0, 0, 51);
-      rect(0, 0, 40, height); //left
-      rect(0, 0, width, 40); //top
-      rect(0, height-80, width, 80); //bottom
-      rect(width-40, 0, width, height); //right
-      
-      //buttons
-      fill(255);
-      stroke(255);
-      rect(40, height - 60, 153, 40);//first
-      rect(220, height - 60, 153, 40);//second
-      rect(400, height - 60, 153, 40);//third
-      
-      //button details
-      //hang up button
-      fill(255, 0, 0);
-      stroke(255, 0, 0);
-      rect(width - 180, height - 45, 30, 20);
-      rect(width - 100, height - 45, 30, 20);
-      rect(width - 180, height - 50, 110, 10);
-      
-      //pick up button
-      fill(0, 255, 0);
-      stroke(0, 255, 0);
-      rect(width - 540, height - 45, 30, 20);
-      rect(width - 460, height - 45, 30, 20);
-      rect(width - 540, height - 50, 110, 10);
-  
-}
+  fill(0);
+  stroke(0);
+  rect(40, 0, 10, height);
+  rect(40, 40, width, 10);
 
-
-void highScore()
-{
-  if(foodEaten > highscore[0])
-  {
-    highscore[0] = foodEaten;
-    saveStrings("scores.txt", highscore);
-    
-  }
-  else
-  {
-    
-  }
+  //border
+  fill(0, 0, 51);
+  stroke(0, 0, 51);
+  rect(0, 0, 40, height); //left
+  rect(0, 0, width, 40); //top
+  rect(0, height-80, width, 80); //bottom
+  rect(width-40, 0, width, height); //right
   
+  //buttons
+  fill(255);
+  stroke(255);
+  rect(40, height - 60, 153, 40);//first
+  rect(220, height - 60, 153, 40);//second
+  rect(400, height - 60, 153, 40);//third
   
+  //button details
+  //hang up button
+  fill(255, 0, 0);
+  stroke(255, 0, 0);
+  rect(width - 180, height - 45, 30, 20);
+  rect(width - 100, height - 45, 30, 20);
+  rect(width - 180, height - 50, 110, 10);
+  
+  //pick up button
+  fill(0, 255, 0);
+  stroke(0, 255, 0);
+  rect(width - 540, height - 45, 30, 20);
+  rect(width - 460, height - 45, 30, 20);
+  rect(width - 540, height - 50, 110, 10);
   
 }
