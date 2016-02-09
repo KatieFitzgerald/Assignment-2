@@ -12,16 +12,12 @@ void setup()
   size(600, 600);
   background(102, 204, 0);
   
- 
-  {   
-    textSize(30);
-    text("Press SHIFT to begin", 150, 150);
-    text("Use ARROWS to navigate", 150, 180);
-  }
+  textSize(30);
+  text("Press SHIFT to begin", 150, 30);
   
- 
   //game goes too fast otherwise
   frameRate(increase);
+
   Snake snake = new Snake();
   Food food = new Food();
   
@@ -41,7 +37,8 @@ void keyReleased()
 
 
 void draw()
-{
+{ 
+  
     if (keyCode == SHIFT)
   {
     startGame = true;
@@ -73,7 +70,7 @@ void draw()
     }
     else
     {
-     //gameOver();
+     gameOver();
     }
   }
 }
@@ -149,26 +146,14 @@ void dead()
 }
 
 void gameOver()
-{  
- fill(0);
-  textSize(30);
-  text("Game Over", 150, 150);
-    
-  fill(0, 225, 0);
-  stroke(0, 255, 0);
-  //body
-  rect(0, 250, 250, 70);
-  rect(210, 220, 70, 120);
-  //eyes
-  fill(0);
-  stroke(0);
-  rect(260, 230, 20, 20);
-  rect(260, 300, 20, 20);
-  //tongue
-  fill(225, 0, 0);
-  stroke(255, 0, 0);
-  rect(280, 270, 30, 10);
+{   
 
+  background(255);
+  textSize(30);
+  fill(102, 204, 0);
+  stroke(102, 204, 0);
+  text("Game Over", 200, 290);
+  text("Score: " +foodEaten, 200, 320);
   
 }
 
