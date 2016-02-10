@@ -95,14 +95,18 @@ void foodEaten()
             gameObjects.remove(othergo);
          
            //create a "filler" food in place of the old one
+           //bug I couldn't fix
             fill(102, 204, 0);
             rect(othergo.randomX, othergo.randomY, othergo.pixel, othergo.pixel);
 
+            //spawn a rew food
             Food food = new Food();
             gameObjects.add(food);
 
+            //increase score
             foodEaten++;
             
+            //increase framerate, to make game harder
             increase+=2;
             frameRate(increase);
           }
@@ -122,6 +126,7 @@ void dead()
       //counter starts at 2 or it will be counting in the head
       for(int j = 2; j <= go.snakelen; j++)
       {
+        //check if the snake is eating itself
         if (go.headX[1] == go.headX[j] && go.headY[1] == go.headY[j])
         {
           gameOver = true;
@@ -135,6 +140,7 @@ void dead()
     
     if(go instanceof Snake)
     {
+      //check if the snake is touching the wall
       if (go.headX[1] >=  width- 40 || go.headY[1] >= height - 90 || go.headX[1] <= 40 || go.headY[1] <= 40)
       {
         gameOver = true;

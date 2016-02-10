@@ -72,11 +72,8 @@ class Snake extends GameObject
     
   }
   
-  
-  
   void keyPressed()
   {
-    //allocating code for the switch statement
     if (key == CODED)
     {
       //checking angle to make sure snake can only go forward
