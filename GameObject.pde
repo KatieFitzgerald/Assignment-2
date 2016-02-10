@@ -4,8 +4,8 @@ abstract class GameObject
   int angle = 0;
   int pixel = 10;
   
-  int randomX = int(random(40, 380));
-  int randomY = int(random(40, 380));
+  int randomX = int(random(50, 500));
+  int randomY = int(random(50, 500));
     
   //using array instead of arraylist, easier to visualise
   int[] headX = new int[500];
