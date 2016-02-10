@@ -4,6 +4,12 @@ Game development assignment
 =======
 Creating a game using processing
 
+Game: Basic Arcade Snake
+
+Objective: Move snake using up, down, left, right arrows to eat the food on screen. Avoid dying
+by avoiding walls and avoiding eating yourself.
+As more food is eaten, snake gets bigger and the speed of the snake increases.
+
 #### Project Goals ####
 
 * ~~Create a snake~~
@@ -20,10 +26,11 @@ Creating a game using processing
 * ~~Consider increasing framerate~~
 * SMOOTH OUT BUGS
 	* Bugs:
-		* sometimes food can only be eaten at certain angle
+		* ~~sometimes food can only be eaten at certain angle~~
 		* ~~remove(othergo) doesn't remove the whole object~~
 		* ~~food can spawn in the snake~~
-		* background will draw over snake for a second when food is eaten
+		* ~~background will draw over snake for a second when food is eaten~~
 		
-
-
+<p align="center">
+  <img src="snake.png" width="350"/>
+ </p>
